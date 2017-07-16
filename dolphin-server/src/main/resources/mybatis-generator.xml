@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+    <classPathEntry location="D:/Maven/repositroy/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar" />
+
+    <context id="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3Simple">
+
+        <property name="autoDelimitKeywords" value="false"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+
+        <commentGenerator type="com.github.mybatis.generator.CustomCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.33.10:3306/dolphin"
+                        userId="apollo"
+                        password="Apollo2017!" />
+
+        <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- Generate models -->
+        <javaModelGenerator targetPackage="com.github.dolphin.web.model" targetProject="src/main/java">
+            <property name="constructorBased" value="false" />
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="false" />
+            <property name="immutable" value="false" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.github.dolphin.mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.github.dolphin.web.persistence" targetProject="src/main/java" >
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- 匹配所有的表 -->
+        <table schema="dolphin" tableName="%">
+            <property name="constructorBased" value="false" />
+            <property name="ignoreQualifiersAtRuntime" value="false" />
+            <property name="immutable" value="false" />
+            <property name="modelOnly" value="false" />
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        </table>
+    </context>
+</generatorConfiguration>

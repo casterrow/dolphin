@@ -1,0 +1,49 @@
+
+# Common config
+spring.output.ansi.enabled: ALWAYS
+
+server:
+  context-path: /dolphin
+  port: 8088
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:com/github/dolphin/mapper/*.xml
+
+# Activated by default
+spring:
+  profiles:
+    active: prod
+
+---
+spring:
+  profiles: dev
+
+# Datasource config
+druid:
+  driver-class: com.mysql.jdbc.Driver
+  url: jdbc:mysql://192.168.33.10:3306/dolphin
+  username: apollo
+  password: Apollo2017!
+  initial-size: 0
+  max-active: 20
+  min-idle: 1
+  max-wait: 60000
+
+
+
+---
+spring:
+  profiles: prod
+
+# Datasource config
+druid:
+  driver-class: com.mysql.jdbc.Driver
+  url: jdbc:mysql://192.168.33.10:3306/dolphin
+  username: apollo
+  password: Apollo2017!
+  initial-size: 0
+  max-active: 20
+  min-idle: 1
+  max-wait: 60000
+
