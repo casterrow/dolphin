@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--
+  定义header公共部分,可以配置参数
+ -->
+<head th:fragment="header(title)">
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+    <link type="text/css" rel="stylesheet" th:href="@{/style/css/bootstrap.min.css}" />
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap-paginator.js}"></script>
+</head>
+</html>
